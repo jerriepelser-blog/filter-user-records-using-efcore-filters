@@ -1,0 +1,32 @@
+﻿@page
+@model IndexModel
+
+<h2 class="mb-2">Your weight records</h2>
+
+@if (Model.Weights?.Count == 0)
+{
+    <div class="alert alert-secondary" role="alert">
+        You have not recorded any weights yet. <a asp-page="Record" class="alert-link">Record your first entry</a>
+    </div>
+}
+else
+{
+    <a asp-page="Record" class="btn btn-primary">Record another entry</a>
+    <table class="table mt-2">
+        <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Weight</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var record in Model.Weights)
+        {
+            <tr>
+                <th scope="row">@record.Date.ToLongDateString()</th>
+                <td>@record.Weight</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

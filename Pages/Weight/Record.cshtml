@@ -1,0 +1,19 @@
+﻿@page
+@model RecordModel
+
+<h2>Record your weight</h2>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <div class="form-group">
+        <label asp-for="Date"></label>
+        <input asp-for="Date" class="form-control">
+        <span asp-validation-for="Date" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="Weight"></label>
+        <input asp-for="Weight" class="form-control">
+        <span asp-validation-for="Weight" class="text-danger"></span>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+</form>
